@@ -102,7 +102,7 @@ protocol KWTextFieldDelegate: class {
   public func activate() {
     numberTextField.becomeFirstResponder()
     if numberTextField.text?.count == 0 {
-      numberTextField.text = " "
+      numberTextField.text = ""
     }
   }
 
@@ -111,7 +111,7 @@ protocol KWTextFieldDelegate: class {
   }
 
   public func reset() {
-    numberTextField.text = " "
+    numberTextField.text = ""
     updateUnderline()
   }
 
@@ -130,7 +130,7 @@ protocol KWTextFieldDelegate: class {
 
   @objc private func textFieldDidChange(_ notification: Foundation.Notification) {
     if numberTextField.text?.count == 0 {
-      numberTextField.text = " "
+      numberTextField.text = ""
     }
   }
 }
@@ -146,7 +146,7 @@ extension KWTextFieldView: UITextFieldDelegate {
       textField.text = string
     } else if newString.count == 0 {
       delegate?.moveToPrevious(self, oldCode: textField.text!)
-      numberTextField.text = " "
+      numberTextField.text = ""
     }
 
     delegate?.didChangeCharacters()
